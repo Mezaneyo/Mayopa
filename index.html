@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malosa Youth Partnership</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Header with Sliding Background */
+    .header-slider {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+    }
+    
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    
+    .slide.active {
+      opacity: 1;
+    }
+    
+    /* Fallback background if images don't load */
+    .slide-1 { background-image: linear-gradient(135deg, #3498db, #2ecc71), url('images/image1.jpg'); }
+    .slide-2 { background-image: linear-gradient(135deg, #e74c3c, #f39c12), url('images/image2.jpg'); }
+    .slide-3 { background-image: linear-gradient(135deg, #9b59b6, #34495e), url('images/image3.jpg'); }
+    .slide-4 { background-image: linear-gradient(135deg, #1abc9c, #16a085), url('images/image4.jpg'); }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      background-color: rgba(0,0,0,0.5);
+    }
+    
+    /* Rest of your CSS */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .stats-section {
+      background-color: #f8f9fa;
+    }
+    
+    .card {
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    footer {
+      background-color: #343a40;
+    }
+    
+    .account-required {
+      position: relative;
+    }
+    
+    .account-required::after {
+      content: "*";
+      color: red;
+      margin-left: 3px;
+    }
+    
+    @media (max-width: 768px) {
+      .header-slider {
+        height: 60vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.png" alt="Logo" height="40"> Malosa Youth
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link account-required" href="loans.html">Loans</a></li>
+          <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="join.html">Join</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header with Sliding Background -->
+  <header class="header-slider">
+    <!-- Slides -->
+    <div class="slide slide-1 active"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <div class="slide slide-4"></div>
+    
+    <!-- Header Content -->
+    <div class="header-content">
+      <div class="container">
+        <h1 class="display-4 fw-bold mb-3">Empowering Youth Through Financial Partnerships</h1>
+        <p class="lead mb-4">Join our peer-to-peer lending community or support young entrepreneurs</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="login.html" class="btn btn-primary btn-lg px-4">Login to Apply</a>
+          <a href="join.html" class="btn btn-outline-light btn-lg px-4">Create Account</a>
+        </div>
+        <small class="text-white-50 mt-2">* Must be a registered member to apply for loans</small>
+      </div>
+    </div>
+  </header>
+
+  <!-- Rest of your content remains the same -->
+  <section class="stats-section py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3">
+          <h2 class="display-4">50+</h2>
+          <p>Loans Disbursed</p>
+        </div>
+        <div class="col-md-3">
+          <h2 class="display-4">100%</h2>
+          <p>Repayment Rate</p>
+        </div>
+        <div class="col-md-3">
+          <h2 class="display-4">MK15M+</h2>
+          <p>Total Value</p>
+        </div>
+        <div class="col-md-3">
+          <h2 class="display-4">30+</h2>
+          <p>Active Members</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Success Stories</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">"With Malosa's loan, I started my grocery shop and now employ 2 people!"</p>
+              <div class="d-flex align-items-center">
+                <img src="images/testimonials/jane.jpg" class="rounded-circle me-3" width="50" alt="Jane">
+                <div>
+                  <h5 class="mb-0">Jane M.</h5>
+                  <small class="text-muted">Malosa Trading Centre</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">"The loan helped me buy farming equipment and now I supply local markets."</p>
+              <div class="d-flex align-items-center">
+                <img src="images/testimonials/john.jpg" class="rounded-circle me-3" width="50" alt="John">
+                <div>
+                  <h5 class="mb-0">John B.</h5>
+                  <small class="text-muted">Zomba District</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">"I expanded my tailoring business and now train other young women."</p>
+              <div class="d-flex align-items-center">
+                <img src="images/testimonials/mary.jpg" class="rounded-circle me-3" width="50" alt="Mary">
+                <div>
+                  <h5 class="mb-0">Mary K.</h5>
+                  <small class="text-muted">Malosa Village</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Malosa Youth Partnership</h5>
+          <p>Empowering young entrepreneurs through collaborative finance.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="about.html" class="text-white">About Us</a></li>
+            <li><a href="login.html" class="text-white">Login</a></li>
+            <li><a href="join.html" class="text-white">Join Now</a></li>
+            <li><a href="donate.html" class="text-white">Donate</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact</h5>
+          <p><i class="fas fa-envelope me-2"></i> mayopa@gmail.com</p>
+          <p><i class="fas fa-phone me-2"></i> +265 992 756 209</p>
+          <div class="social-links mt-2">
+            <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p>&copy; 2025 Malosa Youth Partnership. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Enhanced Auto-sliding header background with image preloading
+    document.addEventListener('DOMContentLoaded', function() {
+      // Preload images
+      const images = [
+        'image1.jpg',
+        'image2.jpg',
+        'image3.jpg',
+        'image4.jpg',
+        'logo.png',
+        'testimonials/jane.jpg',
+        'testimonials/john.jpg',
+        'testimonials/mary.jpg'
+      ];
+      
+      images.forEach(img => {
+        new Image().src = img;
+      });
+
+      // Initialize slider
+      const slides = document.querySelectorAll('.slide');
+      let currentSlide = 0;
+      const slideCount = slides.length;
+      let slideInterval;
+      const slideDuration = 5000; // 5 seconds
+      
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+      }
+      
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideCount;
+        showSlide(currentSlide);
+      }
+      
+      function startSlider() {
+        showSlide(currentSlide);
+        slideInterval = setInterval(nextSlide, slideDuration);
+      }
+      
+      // Start the slider
+      startSlider();
+      
+      // Pause on hover (optional)
+      const slider = document.querySelector('.header-slider');
+      slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+      slider.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, slideDuration);
+      });
+      
+      // Loan application requirement notice
+      const loanLinks = document.querySelectorAll('a[href="loans.html"]');
+      loanLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if(!confirm('You need an account to apply for loans. Would you like to register first?')) {
+            e.preventDefault();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

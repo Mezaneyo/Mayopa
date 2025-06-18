@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Same head as index.html -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malosa Youth Partnership</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Reuse navigation -->
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="Logo" height="40"> Malosa Youth 
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="loans.html">Loans</a></li>
+          <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Donate Hero -->
+  <section class="donate-hero bg-warning text-dark py-5">
+    <div class="container">
+      <h1 class="display-4">Support Our Youth</h1>
+      <p class="lead">Your donation fuels entrepreneurial dreams</p>
+    </div>
+  </section>
+
+  <!-- Donation Options -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Make a Difference</h2>
+          <p>Every dollar you donate goes directly to funding youth businesses. We maintain complete transparency:</p>
+          
+          <div class="impact-stats mt-4">
+            <div class="impact-item mb-3">
+              <h5>$50</h5>
+              <p>Funds a market stall starter kit</p>
+            </div>
+            <div class="impact-item mb-3">
+              <h5>$200</h5>
+              <p>Supplies a tailoring business</p>
+            </div>
+            <div class="impact-item">
+              <h5>$500+</h5>
+              <p>Launches a small shop</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="donation-card p-4 bg-light rounded">
+            <h3 class="text-center mb-4">Donate Now</h3>
+            
+            <div class="donation-options mb-4">
+              <button class="btn btn-outline-primary donation-option" data-amount="50">$50</button>
+              <button class="btn btn-outline-primary donation-option" data-amount="100">$100</button>
+              <button class="btn btn-outline-primary donation-option" data-amount="200">$200</button>
+            </div>
+            
+            <div class="mb-3">
+              <label for="custom-amount" class="form-label">Or enter custom amount ($)</label>
+              <input type="number" class="form-control" id="custom-amount" min="5">
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Payment Method</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment-method" id="paypal" checked>
+                <label class="form-check-label" for="paypal">
+                  <i class="fab fa-paypal me-2"></i>PayPal
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment-method" id="mpesa">
+                <label class="form-check-label" for="mpesa">
+                  <i class="fas fa-mobile-alt me-2"></i>M-Pesa
+                </label>
+              </div>
+            </div>
+            
+            <button id="donate-btn" class="btn btn-primary w-100">Donate Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparency Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Our Transparency Promise</h2>
+      <div class="row">
+        <div class="col-md-4 text-center mb-4">
+          <div class="transparency-item p-3">
+            <i class="fas fa-chart-pie fa-3x mb-3 text-primary"></i>
+            <h5>Financial Reports</h5>
+            <p>Quarterly published reports on all funds</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <div class="transparency-item p-3">
+            <i class="fas fa-camera fa-3x mb-3 text-primary"></i>
+            <h5>Impact Stories</h5>
+            <p>See exactly who your donation helped</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <div class="transparency-item p-3">
+            <i class="fas fa-certificate fa-3x mb-3 text-primary"></i>
+            <h5>Verified Non-Profit</h5>
+            <p>Registered and audited annually</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reuse footer -->
+
+  <script>
+    // Donation Logic
+    const donationOptions = document.querySelectorAll('.donation-option');
+    const customAmount = document.getElementById('custom-amount');
+    const donateBtn = document.getElementById('donate-btn');
+    
+    let selectedAmount = 0;
+    
+    donationOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        donationOptions.forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+        selectedAmount = this.dataset.amount;
+        customAmount.value = '';
+      });
+    });
+    
+    customAmount.addEventListener('input', function() {
+      if (this.value) {
+        donationOptions.forEach(opt => opt.classList.remove('active'));
+        selectedAmount = this.value;
+      }
+    });
+    
+    donateBtn.addEventListener('click', function() {
+      if (selectedAmount === 0 && !customAmount.value) {
+        alert('Please select or enter an amount');
+        return;
+      }
+      
+      const amount = selectedAmount || customAmount.value;
+      const method = document.querySelector('input[name="payment-method"]:checked').id;
+      
+      if (method === 'paypal') {
+        // In a real app, this would trigger PayPal checkout
+        alert(`Redirecting to PayPal to donate $${amount}`);
+      } else {
+        // M-Pesa integration would go here
+        alert(`You will receive M-Pesa prompt for $${amount}`);
+      }
+    });
+  </script>
+</body>
+</html>

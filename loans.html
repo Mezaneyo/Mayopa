@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malosa Youth Partnership</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="Logo" height="40"> Malosa Youth
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="loans.html">Loans</a></li>
+          <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Loans Hero -->
+  <section class="loans-hero bg-success text-white py-5">
+    <div class="container">
+      <h1 class="display-4">Loan Programs</h1>
+      <p class="lead">Access interest-free funding for your business</p>
+    </div>
+  </section>
+
+  <!-- Loan Calculator -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Loan Calculator</h2>
+          <div class="calculator">
+            <div class="mb-3">
+              <label for="loan-amount" class="form-label">Amount Needed ($)</label>
+              <input type="range" class="form-range" min="100" max="5000" step="100" id="loan-amount" value="1000">
+              <div class="d-flex justify-content-between">
+                <span>$100</span>
+                <span id="amount-display">$1000</span>
+                <span>$5000</span>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="repayment-period" class="form-label">Repayment Period</label>
+              <select class="form-select" id="repayment-period">
+                <option value="3">3 Months</option>
+                <option value="6">6 Months</option>
+                <option value="12">12 Months</option>
+              </select>
+            </div>
+            
+            <button id="calculate-btn" class="btn btn-primary">Calculate</button>
+            
+            <div id="results" class="mt-4 p-3 bg-light rounded d-none">
+              <h5>Estimated Repayment</h5>
+              <p id="monthly-payment"></p>
+              <small class="text-muted">*No interest charges apply</small>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <h2>Eligibility</h2>
+          <div class="eligibility-card p-4 bg-light rounded">
+            <h5>Requirements:</h5>
+            <ul>
+              <li>Age 18-35 years</li>
+              <li>Business plan</li>
+              <li>2 guarantors from the group</li>
+            </ul>
+            <h5 class="mt-3">Benefits:</h5>
+            <ul>
+              <li>0% interest</li>
+              <li>3-12 month repayment</li>
+              <li>Business mentorship</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Apply Now</h2>
+      <form id="loan-application" class="row g-3">
+        <div class="col-md-6">
+          <label for="full-name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="full-name" required>
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="col-12">
+          <label for="business" class="form-label">Business Name</label>
+          <input type="text" class="form-control" id="business" required>
+        </div>
+        <div class="col-md-6">
+          <label for="amount" class="form-label">Loan Amount Requested ($)</label>
+          <input type="number" class="form-control" id="amount" min="100" max="5000" required>
+        </div>
+        <div class="col-md-6">
+          <label for="period" class="form-label">Preferred Repayment Period</label>
+          <select class="form-select" id="period" required>
+            <option value="">Select...</option>
+            <option value="3">3 Months</option>
+            <option value="6">6 Months</option>
+            <option value="12">12 Months</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label for="description" class="form-label">Business Description</label>
+          <textarea class="form-control" id="description" rows="3" required></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Reuse footer -->
+
+  <script>
+    // Loan Calculator Logic
+    document.getElementById('loan-amount').addEventListener('input', function() {
+      document.getElementById('amount-display').textContent = '$' + this.value;
+    });
+
+    document.getElementById('calculate-btn').addEventListener('click', function() {
+      const amount = parseInt(document.getElementById('loan-amount').value);
+      const period = parseInt(document.getElementById('repayment-period').value);
+      const monthly = amount / period;
+      
+      document.getElementById('monthly-payment').textContent = 
+        `$${monthly.toFixed(2)} per month for ${period} months`;
+      
+      document.getElementById('results').classList.remove('d-none');
+    });
+
+    // Form Submission
+    document.getElementById('loan-application').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // In a real app, you would send this data to your backend
+      alert('Application submitted successfully! We will contact you within 3 business days.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
